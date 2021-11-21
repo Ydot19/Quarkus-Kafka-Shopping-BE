@@ -81,7 +81,7 @@ type GetTicker struct {
 
 func CreateGetTicker(rc *restclient.RestClient) *GetTickerEndpoint {
 	filters := createGetTickerFilterParameters()
-	var getTicker GetTickerEndpoint = GetTicker{
+	var getTicker GetTickerEndpoint = &GetTicker{
 		nextUrl:          "",
 		previousUrl:      "",
 		client:           rc,
