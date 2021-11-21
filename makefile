@@ -1,0 +1,3 @@
+
+get-deps:
+	go get
