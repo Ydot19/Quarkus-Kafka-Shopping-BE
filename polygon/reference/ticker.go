@@ -15,7 +15,7 @@ type GetTickerFilterParameters struct {
 	orderAsc    bool
 }
 
-func CreateGetTickerFilterParameters() *FilterGetTickerEndpoint {
+func createGetTickerFilterParameters() *FilterGetTickerEndpoint {
 	var ret FilterGetTickerEndpoint = &GetTickerFilterParameters{}
 	return &ret
 }
@@ -73,19 +73,30 @@ func (tf *GetTickerFilterParameters) GetOrder() {
 }
 
 type GetTicker struct {
-	next_url         string
-	previous_url     string
+	nextUrl          string
+	previousUrl      string
 	client           *restclient.RestClient
 	FilterParameters *FilterGetTickerEndpoint
 }
 
-func CreateGetTicker(rc *restclient.RestClient) *GetTicker {
-	filters := CreateGetTickerFilterParameters()
-	getTicker := GetTicker{
-		next_url:         "",
-		previous_url:     "",
+func CreateGetTicker(rc *restclient.RestClient) *GetTickerEndpoint {
+	filters := createGetTickerFilterParameters()
+	var getTicker GetTickerEndpoint = GetTicker{
+		nextUrl:          "",
+		previousUrl:      "",
 		client:           rc,
 		FilterParameters: filters,
 	}
 	return &getTicker
+}
+
+func (gt *GetTicker) Fetch() {
+}
+
+func (gt *GetTicker) constructQueryParameters() {}
+
+func (gt *GetTicker) GetNext() {
+}
+
+func (gt *GetTicker) GetPrevious() {
 }

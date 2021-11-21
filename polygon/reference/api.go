@@ -21,7 +21,7 @@ type FilterGetTickerEndpoint interface {
 
 type GetTickerEndpoint interface {
 	Fetch()
-	FilterGetTickerEndpoint
+	*FilterGetTickerEndpoint
 	constructQueryParameters()
 	GetNext()
 	GetPrevious()
