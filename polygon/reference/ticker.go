@@ -15,8 +15,8 @@ type GetTickerFilterParameters struct {
 	orderAsc    bool
 }
 
-func createGetTickerFilterParameters() *FilterGetTickerEndpoint {
-	var ret FilterGetTickerEndpoint = &GetTickerFilterParameters{}
+func createGetTickerFilterParameters() *GetTickerEndpointFilterParameters {
+	var ret GetTickerEndpointFilterParameters = &GetTickerFilterParameters{}
 	return &ret
 }
 
@@ -76,7 +76,7 @@ type GetTicker struct {
 	nextUrl          string
 	previousUrl      string
 	client           *restclient.RestClient
-	FilterParameters *FilterGetTickerEndpoint
+	FilterParameters *GetTickerEndpointFilterParameters
 }
 
 func CreateGetTicker(rc *restclient.RestClient) *GetTickerEndpoint {

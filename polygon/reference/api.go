@@ -2,7 +2,7 @@ package reference
 
 import "time"
 
-type FilterGetTickerEndpoint interface {
+type GetTickerEndpointFilterParameters interface {
 	SetType(tickerType string)
 	GetType()
 	SetMarket(market string)
@@ -21,7 +21,7 @@ type FilterGetTickerEndpoint interface {
 
 type GetTickerEndpoint interface {
 	Fetch()
-	*FilterGetTickerEndpoint
+	*GetTickerEndpointFilterParameters
 	constructQueryParameters()
 	GetNext()
 	GetPrevious()
