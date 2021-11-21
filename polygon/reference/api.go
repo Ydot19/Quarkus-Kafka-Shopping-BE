@@ -20,7 +20,7 @@ type FilterGetTickerEndpoint interface {
 }
 
 type GetTickerEndpoint interface {
-	GetTickerSymbols()
+	Fetch()
 	FilterGetTickerEndpoint
 	constructQueryParameters()
 	GetNext()

@@ -1,6 +1,9 @@
 package reference
 
-import "time"
+import (
+	"github.com/Ydot19/Stonks/polygon/restclient"
+	"time"
+)
 
 type GetTickerFilterParameters struct {
 	ticketType  string
@@ -67,4 +70,22 @@ func (tf *GetTickerFilterParameters) SetOrder(isAscendingOrder bool) {
 
 func (tf *GetTickerFilterParameters) GetOrder() {
 
+}
+
+type GetTicker struct {
+	next_url         string
+	previous_url     string
+	client           *restclient.RestClient
+	FilterParameters *FilterGetTickerEndpoint
+}
+
+func CreateGetTicker(rc *restclient.RestClient) *GetTicker {
+	filters := CreateGetTickerFilterParameters()
+	getTicker := GetTicker{
+		next_url:         "",
+		previous_url:     "",
+		client:           rc,
+		FilterParameters: filters,
+	}
+	return &getTicker
 }
